@@ -1,0 +1,7 @@
+term dtterm
+defutf8 on
+utf8 on 
+hardstatus alwayslastline 
+hardstatus string '%{= kW}%-w%{= WK}%50>%n* %t%{= kw}%+w%< %{= kc}%-=%D %d %M %Y %c:%s%{-}'
+shell /usr/sfw/bin/zsh
+defscrollback 5000
