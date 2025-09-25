@@ -33,10 +33,10 @@ unsetopt bgnice autoparamslash
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
-zmodload -ap zsh/mapfile mapfile
+#zmodload -ap zsh/mapfile mapfile
 
 
-PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin/:$PATH"
+PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin/:/opt/homebrew/bin:/Users/ifishbein/.local/bin:$PATH"
 TZ="America/New_York"
 HISTFILE=$HOME/.zhistory
 HISTSIZE=1000
@@ -81,6 +81,9 @@ alias offlineimap-tty='offlineimap -u TTY.TTYUI'
 alias hnb-partecs='hnb $HOME/partecs/partecs-hnb.xml'
 alias rest2html-css='rst2html --embed-stylesheet --stylesheet-path=/usr/share/python-docutils/s5_html/themes/default/print.css'
 alias dmesg="sudo dmesg"
+alias dbauth="databricks auth login --profile DEFAULT --host"
+alias ruff-check="ruff format --check --diff"
+alias ruff-fix="ruff format"
 #if [[ $HOSTNAME == "kamna" ]] {
 #	alias emacs='emacs -l ~/.emacs.kamna'
 #}	
@@ -182,3 +185,17 @@ zstyle ':completion:*:ssh:*' group-order \
 zstyle '*' single-ignored show
 
 #alias [alias]='TERM=dtterm ssh [HOST] -t /usr/local/bin/screen -xdRU'
+eval "$(direnv hook zsh)"
+
+export AWS_REGION=us-east-1
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+export LANDING=""
+export PYTHONSTARTUP=/Users/ifishbein/python_config.py
+export SILVER=""
+export CLAUDE_CODE_USE_BEDROCK=1
+export JIRA_API_TOKEN=
+export PATH="$PATH:/Users/ifishbein/src/vi/val_m/"
+export GEMINI_API_KEY=
