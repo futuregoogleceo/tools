@@ -1,0 +1,9 @@
+[alias]
+        br = branch
+        st = status
+        cob = checkout -b
+        fap = !git fetch && git pull
+        co = checkout
+        fixup = !git add -u && git commit -m "fixup"
+        cleanup = "!f(){ git co main; git fap; git rebase origin/main; for b in $(git br | grep -v ' main$' | awk '{print $1}'); do git co $b; git rebase origin/main; git rebase --abort; git co main; git br -d $b; done; };f"
+        irebase = !git rebase -i origin/main
